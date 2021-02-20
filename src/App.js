@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Counter from './components/Counter';
+import Form from './components/Form';
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [formDone, setFormDone] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter count={count} setCount={setCount} title="Counter App" />
+      <Form setFormDone={setFormDone} />
+      <p>{formDone ? '表單填答完成' : '請填寫表單'}</p>
     </div>
   );
-}
+};
 
 export default App;
